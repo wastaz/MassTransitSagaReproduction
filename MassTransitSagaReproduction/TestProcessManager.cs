@@ -1,6 +1,7 @@
 using System;
 using Automatonymous;
 using Common;
+using MassTransit.MongoDbIntegration.Saga;
 
 namespace MassTransitSagaReproduction
 {
@@ -10,12 +11,13 @@ namespace MassTransitSagaReproduction
         
     }
     
-    public class TestState : SagaStateMachineInstance
+    public class TestState : SagaStateMachineInstance, IVersionedSaga
     {
         public Guid Id => CorrelationId;
         public Guid CorrelationId { get; set; }
         public int CurrentState { get; set; }
         public Guid? SchedulerId { get; set; }
+        public int Version { get; set; }
     }
     
     public class TestProcessManager : MassTransitStateMachine<TestState>

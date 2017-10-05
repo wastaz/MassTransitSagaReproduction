@@ -4,6 +4,8 @@ using Automatonymous;
 using Marten;
 using MassTransit;
 using MassTransit.MartenIntegration;
+using MassTransit.MongoDbIntegration.Saga;
+using MongoDB.Driver;
 
 namespace MassTransitSagaReproduction
 {
@@ -15,6 +17,12 @@ namespace MassTransitSagaReproduction
                 .RegisterType<TestProcessManager>()
                 .AsSelf()
                 .As<MassTransitStateMachine<TestState>>()
+                .SingleInstance();
+            
+            builder.RegisterInstance(DocumentStore.For(x =>
+                    x.Connection("host=localhost;port=5432;database=marten;username=postgres;password=postgres")
+                ))
+                .As<IDocumentStore>()
                 .SingleInstance();
             
             builder
@@ -29,9 +37,12 @@ namespace MassTransitSagaReproduction
                                 h.Password("guest");
                             });
 
+                            
+                            
                             var saga =
                                 context.Resolve<MassTransitStateMachine<TestState>>();
                             var store = context.Resolve<IDocumentStore>();
+                            //var repo = new MongoDbSagaRepository<TestState>("mongodb://127.0.0.1", "sagastorage");
                             var repo = new MartenSagaRepository<TestState>(store);
 
                             

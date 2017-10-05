@@ -9,10 +9,11 @@ Run the following to restore packages:
 .paket/paket.exe restore
 ```
 
-This repo uses Marten for saga storage, by default it attempt to connect to `localhost`
-where there should be a postgres database named `marten` with the default `postgres/postgres` user.
+By default I am using Marten for saga storage, but I have also tested this on MongoDB and
+observed the same behaviour. (Switch providers in `MassTransitModule` in the `MassTransitSagaReproduction` project.)
 
-Marten will automatically populate tables etc, so just setup and empty database with the correct login info.
+For Marten, by default it attempts to connect to `localhost` where there should be a postgres database named `marten` with the default `postgres/postgres` user.
+For Mongo, by default it attempts to connect to `localhost` with no credentials and use the database `sagastorage`.
 
 This repo also assumes a RabbitMq running on localhost with `guest/guest` as the username/password. 
 

@@ -14,7 +14,6 @@ namespace MassTransitSagaReproduction
         {
             var builder = new ContainerBuilder();
             builder.RegisterModule<MassTransitModule>();
-            builder.RegisterModule<MartenModule>();
             builder.RegisterType<SvcHost>().AsSelf().SingleInstance();
             
             var exitCode = HostFactory.Run(cfg =>

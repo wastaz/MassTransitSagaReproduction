@@ -7,5 +7,6 @@ nuget MassTransit.Autofac
 nuget MassTransit.Automatonymous
 nuget MassTransit.Marten
 nuget MassTransit.RabbitMQ
+nuget MassTransit.MongoDB
 nuget Topshelf.Autofac
 nuget Marten 2.3.2

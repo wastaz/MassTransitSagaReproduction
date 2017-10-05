@@ -2,4 +2,5 @@ MassTransit.Autofac
 MassTransit.Automatonymous
 MassTransit.Marten
 MassTransit.RabbitMQ
+MassTransit.MongoDB
 Topshelf.Autofac
