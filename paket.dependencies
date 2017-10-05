@@ -1,0 +1,11 @@
+framework: >= net462
+redirects: on
+
+source https://api.nuget.org/v3/index.json
+
+nuget MassTransit.Autofac
+nuget MassTransit.Automatonymous
+nuget MassTransit.Marten
+nuget MassTransit.RabbitMQ
+nuget Topshelf.Autofac
+nuget Marten 2.3.2

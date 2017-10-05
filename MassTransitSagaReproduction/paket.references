@@ -1,0 +1,5 @@
+MassTransit.Autofac
+MassTransit.Automatonymous
+MassTransit.Marten
+MassTransit.RabbitMQ
+Topshelf.Autofac
